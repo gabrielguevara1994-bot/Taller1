@@ -43,48 +43,42 @@ function iniciarJuego() {
     limpiarCanvas();
 }
 
-function mover(direccion) {
-    if (direccion === "arriba") {
-        gatoy -= VELOCIDAD; 
-    }
-    if (direccion === "abajo") {
-        gatoy += VELOCIDAD; 
-    }
-    if (direccion === "izquierda") {
-        gatox -= VELOCIDAD;
-    }
-    if (direccion === "derecha") {
-        gatox += VELOCIDAD;
-    }
-    limpiarCanvas();
-}
+const LIMITE_X=canvas.width-ANCHO_GATO;
+const LIMITE_Y=canvas.height-ALTO_GATO;
 
 function moverIzquierda(){
+    if(gatox>0){
     gatox-=10;
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    }
 }
 
 function moverDerecha(){
+    if(gatox<LIMITE_X){
     gatox+=10;
     limpiarCanvas();
     graficarGato();
     graficarComida();
 }
+}
 
 function moverArriba(){
+    if(gatoy>0){
     gatoy-=10;
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    }
 }
 
 function moverAbajo(){
+    if(gatoy<LIMITE_Y){
     gatoy+=10;
     limpiarCanvas();
     graficarGato();
-    graficarComida();
+    graficarComida();}
 }
 
 document.getElementById("btnarriba").onclick = () => moverArriba();
