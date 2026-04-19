@@ -1,11 +1,6 @@
 let canvas = document.getElementById("juego");
 let ctx = canvas.getContext("2d");
 
-let btnarriba = document.getElementById("btnarriba");
-let btnabajo = document.getElementById("btnabajo");
-let btnderecha = document.getElementById("btnderecha");
-let btnizquierda = document.getElementById("btnizquierda");
-
 const VELOCIDAD = 15;
 
 let gatox = 0;
@@ -18,17 +13,17 @@ const ANCHO_GATO = 50;
 const ALTO_COMIDA = 30; 
 const ANCHO_COMIDA = 30;
 
-function graficar(x, y, ancho, alto, color) {
+function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, ancho, alto);
 }
 
 function graficarGato() {
-    graficar(gatox, gatoy, ANCHO_GATO, ALTO_GATO, "#6428f0");
+    graficarRectangulo(gatox, gatoy, ANCHO_GATO, ALTO_GATO, "#6428f0");
 }
 
 function graficarComida() { // Cambiado de graficarRaton
-    graficar(comidax, comiday, ANCHO_COMIDA, ALTO_COMIDA, "rgba(23, 77, 18, 0.27)");
+    graficarRectangulo(comidax, comiday, ANCHO_COMIDA, ALTO_COMIDA, "rgba(23, 77, 18, 0.27)");
 }
 
 function limpiarPantalla() {
@@ -69,6 +64,7 @@ document.getElementById("btnabajo").onclick = () => mover("abajo");
 document.getElementById("btnizquierda").onclick = () => mover("izquierda");
 document.getElementById("btnderecha").onclick = () => mover("derecha");
 
-iniciarJuego();
+
+
 
 
