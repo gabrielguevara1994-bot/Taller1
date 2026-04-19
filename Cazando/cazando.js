@@ -42,10 +42,23 @@ function iniciarJuego(){
     graficarGato();
     graficarRaton();
 }
+iniciarJuego();
 
 function mover(direccion){
-    IdleDeadline(direccion)
+    if(direccion==="arriba"){
+        gatoy -=VELOCIDAD}
+if(direccion==="abajo"){
+        gatoy +=VELOCIDAD}
+if(direccion==="izquierda"){
+    gatox-=VELOCIDAD}
+if(direccion==="derecha"){
+    gatox+=VELOCIDAD}
+graficarGato();
 }
 
-iniciarJuego();
+document.getElementById("btnarriba").onclick=()=> mover("arriba");
+document.getElementById("btnabajo").onclick = () =>mover("abajo");
+document.getElementById("btnizquierda").onclick = () => mover("izquierda");
+document.getElementById("btnderecha").onclick = () => mover("derecha");
+
 
