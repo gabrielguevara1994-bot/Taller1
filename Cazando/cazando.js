@@ -1,4 +1,4 @@
-let canvas = document.getElementById("juego");
+let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
 
 const VELOCIDAD = 15;
@@ -22,12 +22,12 @@ function graficarGato() {
     graficarRectangulo(gatox, gatoy, ANCHO_GATO, ALTO_GATO, "#6428f0");
 }
 
-function graficarComida() { // Cambiado de graficarRaton
+function graficarComida() { 
     graficarRectangulo(comidax, comiday, ANCHO_COMIDA, ALTO_COMIDA, "rgba(23, 77, 18, 0.27)");
 }
 
-function limpiarPantalla() {
-    // Limpiamos el canvas para evitar que se vea el rastro del movimiento
+function limpiarCanvas() {
+   
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     graficarComida();
     graficarGato();
@@ -40,7 +40,7 @@ function iniciarJuego() {
     comidax = (canvas.width - 100) - (ANCHO_COMIDA);
     comiday = (canvas.height - 100) - (ALTO_COMIDA);
 
-    limpiarPantalla();
+    limpiarCanvas();
 }
 
 function mover(direccion) {
@@ -56,13 +56,41 @@ function mover(direccion) {
     if (direccion === "derecha") {
         gatox += VELOCIDAD;
     }
-    limpiarPantalla();
+    limpiarCanvas();
 }
 
-document.getElementById("btnarriba").onclick = () => mover("arriba");
-document.getElementById("btnabajo").onclick = () => mover("abajo");
-document.getElementById("btnizquierda").onclick = () => mover("izquierda");
-document.getElementById("btnderecha").onclick = () => mover("derecha");
+function moverIzquierda(){
+    gatox-=10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+}
+
+function moverDerecha(){
+    gatox+=10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+}
+
+function moverArriba(){
+    gatoy-=10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+}
+
+function moverAbajo(){
+    gatoy+=10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+}
+
+document.getElementById("btnarriba").onclick = () => moverArriba();
+document.getElementById("btnabajo").onclick = () => moverAbajo();
+document.getElementById("btnizquierda").onclick = () => moverIzquierda();
+document.getElementById("btnderecha").onclick = () => moverDerecha();
 
 
 
