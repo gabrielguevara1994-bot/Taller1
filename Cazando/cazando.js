@@ -32,7 +32,7 @@ function graficarGato() {
 }
 
 function graficarComida() { 
-    graficarRectangulo(comidax, comiday, ANCHO_COMIDA, ALTO_COMIDA, "rgba(23, 77, 18, 0.27)");
+    graficarRectangulo(comidax, comiday, ANCHO_COMIDA, ALTO_COMIDA, "rgb(240, 252, 252)");
 }
 
 
