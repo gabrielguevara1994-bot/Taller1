@@ -125,7 +125,26 @@ function posicionarComidaAleatoria() {
     comiday = Math.floor(Math.random() * (canvas.height - ALTO_COMIDA));
 }
 
+function restarTiempo() {
+    tiempo--;
+    document.getElementById("tiempo").innerText = tiempo;
+    
+    if (tiempo <= 0) {
+        finalizarJuego("Game Over 🏁");
+    }
+}
 
+function finalizarJuego(msg) {
+    clearInterval(intervaloTiempo);
+    document.getElementById("mensaje").innerText = msg;
+    alert(msg);
+}
+
+
+const btnReiniciar = document.getElementById("btnReiniciar");
+if(btnReiniciar) {
+    btnReiniciar.onclick = () => iniciarJuego();
+}
 
 
 document.getElementById("btnarriba").onclick = () => moverArriba();
