@@ -1,3 +1,7 @@
+
+const imagenGato = new Image();
+imagenGato.src = "gato.png"; // Asegúrate de que el archivo esté en la misma carpeta
+
 let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
 
@@ -28,7 +32,8 @@ function graficarRectangulo(x, y, ancho, alto, color) {
 }
 
 function graficarGato() {
-    graficarRectangulo(gatox, gatoy, ANCHO_GATO, ALTO_GATO, "#6428f0");
+    // drawImage recibe: (imagen, x, y, ancho, alto)
+    ctx.drawImage(imagenGato, gatox, gatoy, ANCHO_GATO, ALTO_GATO);
 }
 
 function graficarComida() { 
@@ -109,7 +114,7 @@ function detectarColision() {
         
         puntos++;
         document.getElementById("puntos").innerText = puntos;
-        tiempo=15;
+        tiempo=tiempo-1;
         
         if (puntos >= 6) {
             finalizarJuego("¡Ganaste! 🏆");
