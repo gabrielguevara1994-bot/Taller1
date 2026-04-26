@@ -109,6 +109,7 @@ function detectarColision() {
         
         puntos++;
         document.getElementById("puntos").innerText = puntos;
+        tiempo=15;
         
         if (puntos >= 6) {
             finalizarJuego("¡Ganaste! 🏆");
