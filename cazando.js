@@ -2,7 +2,7 @@ let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
 
 
-const VELOCIDAD = 10; 
+const VELOCIDAD = 15; 
 let gatox = 0;
 let gatoy = 0;
 let comidax = 0; 
