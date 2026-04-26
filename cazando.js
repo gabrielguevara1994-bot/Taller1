@@ -1,6 +1,9 @@
 
 const imagenGato = new Image();
-imagenGato.src = "gato.png"; // Asegúrate de que el archivo esté en la misma carpeta
+imagenGato.src = "gato.png"; 
+
+const imagenComida = new Image(); 
+imagenComida.src = "lagar.png";
 
 let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
@@ -37,7 +40,7 @@ function graficarGato() {
 }
 
 function graficarComida() { 
-    graficarRectangulo(comidax, comiday, ANCHO_COMIDA, ALTO_COMIDA, "rgb(240, 252, 252)");
+    ctx.drawImage(imagenComida, comidax, comiday, ANCHO_COMIDA, ALTO_COMIDA);
 }
 
 
